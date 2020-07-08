@@ -33,8 +33,9 @@ if [ "$use_ccache" = "yes" ];
 then
 echo -e ${blu}"CCACHE is enabled for this build"${txtrst}
 export USE_CCACHE=1
-export CCACHE_DIR=/home/ccache/shubham
-prebuilts/misc/linux-x86/ccache/ccache -M 50G
+export CCACHE_DIR=/home/ccache/$username
+export CCACHE_EXEC=$(which ccache)
+ccache -M 50G
 fi
 
 if [ "$use_ccache" = "clean" ];
